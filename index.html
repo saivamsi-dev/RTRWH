@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTRWH Assessment - Water Conservation Heroes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="background-animation">
+        <div class="clouds-container">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+        </div>
+        <div class="rain-container" id="rainContainer"></div>
+        <div class="floating-drops">
+            <div class="floating-drop"></div>
+            <div class="floating-drop"></div>
+            <div class="floating-drop"></div>
+            <div class="floating-drop"></div>
+            <div class="floating-drop"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="navigateToPage('home')">
+                    <div class="logo-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1 data-translate="appTitle">RTRWH Assessment</h1>
+                        <span>Water Conservation Heroes</span>
+                    </div>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#" onclick="navigateToPage('home')" class="nav-link active" id="homeNav">
+                        <i class="fas fa-home"></i>
+                        <span data-translate="home">Home</span>
+                    </a>
+                    <a href="#" onclick="navigateToPage('about')" class="nav-link" id="aboutNav">
+                        <i class="fas fa-info-circle"></i>
+                        <span data-translate="about">About</span>
+                    </a>
+                    <a href="#" onclick="navigateToPage('chatbot')" class="nav-link" id="chatbotNav">
+                        <i class="fas fa-robot"></i>
+                        <span data-translate="aiChatbot">AI Chatbot</span>
+                    </a>
+                    <button class="btn btn-gradient" onclick="startAssessment()" id="headerAssessBtn">
+                        <i class="fas fa-chart-line"></i>
+                        <span data-translate="startAssessment">Start Assessment</span>
+                    </button>
+                    <div class="language-selector">
+                        <button class="language-btn" onclick="toggleLanguageDropdown()">
+                            <i class="fas fa-globe"></i>
+                            <span id="currentLang">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button onclick="changeLanguage('en')" data-lang="en">🇺🇸 English</button>
+                            <button onclick="changeLanguage('hi')" data-lang="hi">🇮🇳 हिन्दी</button>
+                            <button onclick="changeLanguage('te')" data-lang="te">🇮🇳 తెలుగు</button>
+                            <button onclick="changeLanguage('ta')" data-lang="ta">🇮🇳 தமிழ்</button>
+                            <button onclick="changeLanguage('mr')" data-lang="mr">🇮🇳 मराठी</button>
+                        </div>
+                    </div>
+                </nav>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section class="page home-page active" id="homePage">
+            <div class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <div class="hero-badge">
+                                <i class="fas fa-leaf"></i>
+                                <span>Eco-Friendly Solution</span>
+                            </div>
+                            <h1 class="hero-title">
+                                Transforming <span class="gradient-text">Rooftops</span> into 
+                                <span class="gradient-text">Water Conservation</span> Heroes
+                            </h1>
+                            <p class="hero-subtitle">
+                                Join the revolution in sustainable water management. Assess your rainwater harvesting potential 
+                                and contribute to groundwater conservation with our advanced AI-powered assessment tool.
+                            </p>
+                            <div class="hero-stats">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number">2.4B+</div>
+                                        <div class="stat-label">Liters Annual Potential</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number">80%</div>
+                                        <div class="stat-label">Water Conservation</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number">₹50K</div>
+                                        <div class="stat-label">Average Savings</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-actions">
+                                <button class="btn btn-primary btn-large pulse-animation" onclick="startAssessment()">
+                                    <i class="fas fa-rocket"></i>
+                                    <span data-translate="startAssessment">Start Assessment Now</span>
+                                </button>
+                                <button class="btn btn-outline btn-large" onclick="navigateToPage('about')">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Learn More</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-visual">
+                            <div class="water-animation">
+                                <div class="house-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="water-drops-animated">
+                                    <div class="drop-animated"></div>
+                                    <div class="drop-animated"></div>
+                                    <div class="drop-animated"></div>
+                                    <div class="drop-animated"></div>
+                                </div>
+                                <div class="ripple-effect">
+                                    <div class="ripple"></div>
+                                    <div class="ripple"></div>
+                                    <div class="ripple"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Why Choose RTRWH?</h2>
+                        <p>Discover the powerful benefits of rainwater harvesting</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon bg-blue">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Smart Assessment</h3>
+                            <p>AI-powered analysis of your property's rainwater harvesting potential</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon bg-green">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3>Eco-Friendly</h3>
+                            <p>Reduce environmental impact and contribute to sustainable water management</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon bg-purple">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Custom Solutions</h3>
+                            <p>Personalized recommendations based on your specific requirements</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon bg-orange">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <h3>Cost Savings</h3>
+                            <p>Significant reduction in water bills and long-term cost benefits</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section class="page about-page" id="aboutPage">
+            <div class="container">
+                <div class="about-hero">
+                    <div class="about-content">
+                        <h1>About Rainwater Harvesting</h1>
+                        <p class="lead">Empowering communities to harness rainwater for sustainable groundwater replenishment and environmental conservation.</p>
+                    </div>
+                </div>
+
+                <div class="about-sections">
+                    <div class="about-section">
+                        <div class="section-content">
+                            <div class="text-content">
+                                <h2>Our Mission</h2>
+                                <p>To provide accessible, intelligent assessment tools that help property owners make informed decisions about rainwater harvesting systems, contributing to water security and environmental sustainability.</p>
+                                <div class="benefits-list">
+                                    <div class="benefit-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Reduces groundwater depletion by up to 40%</span>
+                                    </div>
+                                    <div class="benefit-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Prevents urban flooding during monsoons</span>
+                                    </div>
+                                    <div class="benefit-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Provides cost-effective water security</span>
+                                    </div>
+                                    <div class="benefit-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Creates environmental sustainability</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="visual-content">
+                                <div class="info-graphic">
+                                    <div class="info-circle">
+                                        <i class="fas fa-cloud-rain"></i>
+                                        <span>Collection</span>
+                                    </div>
+                                    <div class="info-arrow">→</div>
+                                    <div class="info-circle">
+                                        <i class="fas fa-filter"></i>
+                                        <span>Filtration</span>
+                                    </div>
+                                    <div class="info-arrow">→</div>
+                                    <div class="info-circle">
+                                        <i class="fas fa-database"></i>
+                                        <span>Storage</span>
+                                    </div>
+                                    <div class="info-arrow">→</div>
+                                    <div class="info-circle">
+                                        <i class="fas fa-recycle"></i>
+                                        <span>Recharge</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>How It Works</h2>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Simple Assessment</h3>
+                                    <p>Complete our comprehensive form with your property details, location, and preferences.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>AI-Powered Analysis</h3>
+                                    <p>Our advanced algorithms analyze rainfall data, soil conditions, and structural requirements.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Custom Recommendations</h3>
+                                    <p>Receive detailed recommendations for structures, costs, and implementation plans.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Professional Guidance</h3>
+                                    <p>Get comprehensive reports and step-by-step implementation guidance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>Impact & Benefits</h2>
+                        <div class="impact-grid">
+                            <div class="impact-card">
+                                <div class="impact-icon">
+                                    <i class="fas fa-globe-asia"></i>
+                                </div>
+                                <h3>Environmental Impact</h3>
+                                <ul>
+                                    <li>Reduces strain on groundwater resources</li>
+                                    <li>Minimizes urban runoff and flooding</li>
+                                    <li>Improves soil moisture and local ecosystem</li>
+                                </ul>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Economic Benefits</h3>
+                                <ul>
+                                    <li>Significant reduction in water bills</li>
+                                    <li>Increased property value</li>
+                                    <li>Government subsidies and incentives</li>
+                                </ul>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Community Benefits</h3>
+                                <ul>
+                                    <li>Enhanced water security for neighborhoods</li>
+                                    <li>Reduced dependency on municipal supply</li>
+                                    <li>Educational value for sustainable practices</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Chatbot Page -->
+        <section class="page chatbot-page" id="chatbotPage">
+            <div class="container">
+                <div class="chatbot-header">
+                    <h1><i class="fas fa-robot"></i> <span data-translate="aiChatbot">AI Assistant</span></h1>
+                    <p>Get instant answers to your rainwater harvesting questions</p>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Hello! I'm your RTRWH Assistant. I can help you with questions about rainwater harvesting, system design, costs, and implementation. What would you like to know?</p>
+                            </div>
+                        </div>
+                        <div class="quick-questions">
+                            <h4>Popular Questions:</h4>
+                            <div class="question-buttons">
+                                <button class="question-btn" onclick="askQuestion('What is rainwater harvesting?')">
+                                    What is rainwater harvesting?
+                                </button>
+                                <button class="question-btn" onclick="askQuestion('How much does it cost?')">
+                                    How much does it cost?
+                                </button>
+                                <button class="question-btn" onclick="askQuestion('What roof type is best?')">
+                                    What roof type is best?
+                                </button>
+                                <button class="question-btn" onclick="askQuestion('How do I maintain the system?')">
+                                    How do I maintain the system?
+                                </button>
+                                <button class="question-btn" onclick="askQuestion('What permits do I need?')">
+                                    What permits do I need?
+                                </button>
+                                <button class="question-btn" onclick="askQuestion('How much water can I collect?')">
+                                    How much water can I collect?
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="chat-input-wrapper">
+                            <input type="text" id="chatInput" placeholder="Ask me anything about rainwater harvesting..." onkeypress="handleChatKeyPress(event)">
+                            <button class="send-button" onclick="sendChatMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Page -->
+        <section class="page assessment-page" id="assessmentPage">
+            <div class="container">
+                <!-- Progress Indicator -->
+                <div class="progress-section">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <div class="step active" id="step1">
+                            <div class="step-circle">1</div>
+                            <div class="step-label" data-translate="personalInfo">Personal Info</div>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="step-circle">2</div>
+                            <div class="step-label" data-translate="locationDetails">Location & Climate</div>
+                        </div>
+                        <div class="step" id="step3">
+                            <div class="step-circle">3</div>
+                            <div class="step-label" data-translate="roofType">Roof Details</div>
+                        </div>
+                        <div class="step" id="step4">
+                            <div class="step-circle">4</div>
+                            <div class="step-label" data-translate="siteCharacteristics">Site Assessment</div>
+                        </div>
+                        <div class="step" id="step5">
+                            <div class="step-circle">5</div>
+                            <div class="step-label" data-translate="primaryPurpose">Preferences</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Steps -->
+                <div class="form-container">
+                    <!-- Step 1: Personal Information -->
+                    <div class="form-step active" id="formStep1">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <h2 data-translate="personalInfo">Personal Information</h2>
+                                <p>Tell us about yourself and your property</p>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="userName" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="userEmail" placeholder="your.email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="userPhone" placeholder="+91 9876543210" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Property Address *</label>
+                                    <textarea class="form-control" id="userAddress" rows="3" placeholder="Enter complete address" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Property Type *</label>
+                                    <select class="form-control" id="propertyType" required>
+                                        <option value="">Select property type</option>
+                                        <option value="residential">Residential House</option>
+                                        <option value="apartment">Apartment/Flat</option>
+                                        <option value="commercial">Commercial Building</option>
+                                        <option value="institutional">Institutional Building</option>
+                                        <option value="industrial">Industrial Facility</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Number of Occupants *</label>
+                                    <input type="number" class="form-control" id="occupants" placeholder="e.g. 4" min="1" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Location & Climate -->
+                    <div class="form-step" id="formStep2">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <h2 data-translate="locationDetails">Location & Climate Details</h2>
+                                <p>Location-specific information for accurate assessment</p>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">City *</label>
+                                    <select class="form-control" id="userCity" required>
+                                        <option value="">Select your city</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Bangalore">Bangalore</option>
+                                        <option value="Chennai">Chennai</option>
+                                        <option value="Kolkata">Kolkata</option>
+                                        <option value="Hyderabad">Hyderabad</option>
+                                        <option value="Pune">Pune</option>
+                                        <option value="Ahmedabad">Ahmedabad</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">State *</label>
+                                    <select class="form-control" id="userState" required>
+                                        <option value="">Select your state</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Coordinates (Optional)</label>
+                                    <input type="text" class="form-control" id="coordinates" placeholder="Latitude, Longitude">
+                                    <button type="button" class="btn btn-outline btn-sm mt-2" onclick="autoDetectLocation()">
+                                        <i class="fas fa-map-marker-alt"></i> Auto Detect Location
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Climate Zone</label>
+                                    <select class="form-control" id="climateZone">
+                                        <option value="tropical">Tropical</option>
+                                        <option value="subtropical">Subtropical</option>
+                                        <option value="temperate">Temperate</option>
+                                        <option value="arid">Arid/Semi-Arid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Average Annual Rainfall (mm)</label>
+                                    <input type="number" class="form-control" id="annualRainfall" placeholder="e.g. 1200" readonly>
+                                    <small class="help-text">Auto-filled based on selected city</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Groundwater Depth</label>
+                                    <select class="form-control" id="groundwaterDepth">
+                                        <option value="shallow">Shallow (0-5m)</option>
+                                        <option value="medium">Medium (5-15m)</option>
+                                        <option value="deep">Deep (15-30m)</option>
+                                        <option value="very-deep">Very Deep (30m+)</option>
+                                        <option value="unknown">Unknown</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Roof Specifications -->
+                    <div class="form-step" id="formStep3">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <h2>Roof Specifications</h2>
+                                <p>Details about your roof for harvesting calculations</p>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Total Roof Area (sq meters) *</label>
+                                    <input type="number" class="form-control" id="roofArea" placeholder="e.g. 150" min="10" required>
+                                    <button type="button" class="btn btn-outline btn-sm mt-2" onclick="autoEstimateRoofArea()">
+                                        <i class="fas fa-calculator"></i> Auto Estimate
+                                    </button>
+                                    <small class="help-text">Measure length × width of your roof</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Roof Material *</label>
+                                    <select class="form-control" id="roofMaterial" required>
+                                        <option value="">Select roof material</option>
+                                        <option value="concrete">RCC (Concrete Slab)</option>
+                                        <option value="tile">Clay/Concrete Tiles</option>
+                                        <option value="metal">Metal Sheet (Galvanized)</option>
+                                        <option value="asbestos">Asbestos Sheet</option>
+                                        <option value="slate">Slate Tiles</option>
+                                        <option value="thatch">Thatch/Traditional</option>
+                                    </select>
+                                    <button type="button" class="btn btn-outline btn-sm mt-2" onclick="autoDetectRoofType()">
+                                        <i class="fas fa-eye"></i> Auto Detect
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Roof Age</label>
+                                    <select class="form-control" id="roofAge">
+                                        <option value="new">Less than 5 years</option>
+                                        <option value="medium">5-15 years</option>
+                                        <option value="old">More than 15 years</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Roof Condition</label>
+                                    <select class="form-control" id="roofCondition">
+                                        <option value="excellent">Excellent</option>
+                                        <option value="good">Good</option>
+                                        <option value="fair">Fair</option>
+                                        <option value="poor">Poor (needs repair)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Number of Roof Sections</label>
+                                    <input type="number" class="form-control" id="roofSections" value="1" min="1" max="10">
+                                    <small class="help-text">Different roof levels or separate sections</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Existing Gutters/Drainage</label>
+                                    <select class="form-control" id="existingGutters">
+                                        <option value="good">Yes, in good condition</option>
+                                        <option value="poor">Yes, but need repair</option>
+                                        <option value="none">No gutters installed</option>
+                                        <option value="partial">Partial gutter system</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Site Assessment -->
+                    <div class="form-step" id="formStep4">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <h2>Site Assessment</h2>
+                                <p>Property characteristics for structure placement</p>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Available Open Space (sq meters) *</label>
+                                    <input type="number" class="form-control" id="openSpace" placeholder="e.g. 50" min="5" required>
+                                    <button type="button" class="btn btn-outline btn-sm mt-2" onclick="autoEstimateOpenSpace()">
+                                        <i class="fas fa-calculator"></i> Auto Estimate
+                                    </button>
+                                    <small class="help-text">Space available for recharge structures</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Soil Type *</label>
+                                    <select class="form-control" id="soilType" required>
+                                        <option value="">Select soil type</option>
+                                        <option value="clay">Clay Soil (Low permeability)</option>
+                                        <option value="sandy">Sandy Soil (High permeability)</option>
+                                        <option value="loamy">Loamy Soil (Medium permeability)</option>
+                                        <option value="rocky">Rocky/Hard Soil (Variable permeability)</option>
+                                        <option value="mixed">Mixed Soil Type</option>
+                                        <option value="unknown">Unknown/Need soil test</option>
+                                    </select>
+                                    <button type="button" class="btn btn-outline btn-sm mt-2" onclick="autoDetectSoilType()">
+                                        <i class="fas fa-search"></i> Auto Detect
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Site Slope</label>
+                                    <select class="form-control" id="siteSlope">
+                                        <option value="flat">Flat (0-2%)</option>
+                                        <option value="gentle">Gentle slope (2-5%)</option>
+                                        <option value="moderate">Moderate slope (5-10%)</option>
+                                        <option value="steep">Steep slope (10%+)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Existing Drainage System</label>
+                                    <select class="form-control" id="drainageSystem">
+                                        <option value="none">No formal drainage</option>
+                                        <option value="basic">Basic surface drainage</option>
+                                        <option value="covered">Covered drain system</option>
+                                        <option value="storm">Storm water management</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Nearby Water Bodies</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="nearbyWell"> Open Well within 50m
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="nearbyBorewell"> Borewell within 50m
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="nearbyPond"> Pond/Lake within 100m
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="nearbyRiver"> River/Stream within 200m
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Current Water Sources</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="municipalWater"> Municipal Water Supply
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="borewellWater"> Private Borewell
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="wellWater"> Open Well
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="tankerWater"> Water Tanker
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Requirements & Preferences -->
+                    <div class="form-step" id="formStep5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <h2>Requirements & Preferences</h2>
+                                <p>Your preferences and implementation requirements</p>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Daily Water Usage (liters)</label>
+                                    <select class="form-control" id="waterUsage">
+                                        <option value="low">Low (< 500L/day)</option>
+                                        <option value="medium">Medium (500-1000L/day)</option>
+                                        <option value="high">High (1000-2000L/day)</option>
+                                        <option value="very-high">Very High (> 2000L/day)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Budget Range</label>
+                                    <select class="form-control" id="budgetRange">
+                                        <option value="low">₹10,000 - ₹30,000</option>
+                                        <option value="medium">₹30,000 - ₹60,000</option>
+                                        <option value="high">₹60,000 - ₹1,00,000</option>
+                                        <option value="premium">Above ₹1,00,000</option>
+                                        <option value="flexible">Flexible based on ROI</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Structure Type</label>
+                                    <select class="form-control" id="structurePreference">
+                                        <option value="any">Any suitable structure</option>
+                                        <option value="pit">Recharge Pit</option>
+                                        <option value="trench">Recharge Trench</option>
+                                        <option value="well">Recharge Well</option>
+                                        <option value="tank">Storage Tank + Recharge</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Implementation Timeline</label>
+                                    <select class="form-control" id="timeline">
+                                        <option value="immediate">Immediate (1-2 months)</option>
+                                        <option value="soon">Soon (2-6 months)</option>
+                                        <option value="planned">Planned (6-12 months)</option>
+                                        <option value="future">Future consideration (1+ years)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Primary Goal</label>
+                                    <select class="form-control" id="primaryGoal">
+                                        <option value="groundwater">Groundwater recharge</option>
+                                        <option value="conservation">Water conservation</option>
+                                        <option value="cost-saving">Cost savings</option>
+                                        <option value="environment">Environmental impact</option>
+                                        <option value="compliance">Regulatory compliance</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Special Requirements</label>
+                                    <textarea class="form-control" id="specialRequirements" rows="3" placeholder="Any specific requirements, constraints, or preferences"></textarea>
+                                </div>
+                            </div>
+                            <div class="review-section">
+                                <div class="review-header">
+                                    <h3>Review Your Information</h3>
+                                    <p>Please review all details before generating your assessment report</p>
+                                </div>
+                                <button class="btn btn-primary btn-large generate-btn" onclick="generateReport()">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span data-translate="generateReport">Generate Assessment Report</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="form-navigation">
+                        <button class="btn btn-outline" id="prevBtn" onclick="previousStep()" style="display: none;">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Previous</span>
+                        </button>
+                        <button class="btn btn-primary" id="nextBtn" onclick="nextStep()">
+                            <span>Next</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Page -->
+        <section class="page results-page" id="resultsPage">
+            <div class="container">
+                <div class="results-header">
+                    <h1>Your RTRWH Assessment Report</h1>
+                    <div class="results-actions">
+                        <button class="btn btn-primary" onclick="downloadPDF()">
+                            <i class="fas fa-download"></i>
+                            <span data-translate="downloadPDF">Download PDF</span>
+                        </button>
+                        <button class="btn btn-outline" onclick="startNewAssessment()">
+                            <i class="fas fa-plus"></i>
+                            <span>New Assessment</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="results-tabs">
+                    <button class="tab-button active" onclick="showTab('overview')">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Feasibility Overview</span>
+                    </button>
+                    <button class="tab-button" onclick="showTab('technical')">
+                        <i class="fas fa-cogs"></i>
+                        <span>Technical Analysis</span>
+                    </button>
+                    <button class="tab-button" onclick="showTab('structures')">
+                        <i class="fas fa-building"></i>
+                        <span>Recommended Structures</span>
+                    </button>
+                    <button class="tab-button" onclick="showTab('cost')">
+                        <i class="fas fa-calculator"></i>
+                        <span>Cost Analysis</span>
+                    </button>
+                    <button class="tab-button" onclick="showTab('environmental')">
+                        <i class="fas fa-leaf"></i>
+                        <span>Environmental Impact</span>
+                    </button>
+                    <button class="tab-button" onclick="showTab('implementation')">
+                        <i class="fas fa-tasks"></i>
+                        <span>Implementation Plan</span>
+                    </button>
+                </div>
+
+                <div class="results-content">
+                    <!-- Overview Tab -->
+                    <div class="tab-content active" id="overviewTab">
+                        <div class="overview-grid">
+                            <div class="feasibility-card">
+                                <div class="feasibility-header">
+                                    <h3>Overall Feasibility Score</h3>
+                                    <div class="score-display">
+                                        <div class="score-circle" id="feasibilityCircle">
+                                            <span class="score-value" id="feasibilityScore">85</span>
+                                            <span class="score-unit">%</span>
+                                        </div>
+                                        <div class="score-label" id="feasibilityLabel">Highly Feasible</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quick-metrics">
+                                <div class="metric-item">
+                                    <div class="metric-icon bg-blue">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="metric-details">
+                                        <div class="metric-value" id="totalHarvest">0</div>
+                                        <div class="metric-label">Annual Harvest Potential (L)</div>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-icon bg-green">
+                                        <i class="fas fa-rupee-sign"></i>
+                                    </div>
+                                    <div class="metric-details">
+                                        <div class="metric-value" id="totalCost">₹0</div>
+                                        <div class="metric-label">Estimated Investment</div>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-icon bg-orange">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="metric-details">
+                                        <div class="metric-value" id="paybackTime">0</div>
+                                        <div class="metric-label">Payback Period (Years)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="risk-assessment">
+                            <h3>Risk Assessment</h3>
+                            <div class="risk-grid" id="riskGrid">
+                                <!-- Risk items will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Analysis Tab -->
+                    <div class="tab-content" id="technicalTab">
+                        <div class="technical-analysis">
+                            <div class="analysis-section">
+                                <h3>Runoff Calculations</h3>
+                                <div class="chart-container" style="position: relative; height: 300px;">
+                                    <canvas id="runoffChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="analysis-section">
+                                <h3>Seasonal Variation</h3>
+                                <div class="chart-container" style="position: relative; height: 300px;">
+                                    <canvas id="seasonalChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="efficiency-metrics">
+                                <h3>Efficiency Predictions</h3>
+                                <div class="efficiency-grid" id="efficiencyGrid">
+                                    <!-- Efficiency metrics will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Structures Tab -->
+                    <div class="tab-content" id="structuresTab">
+                        <div class="structures-grid" id="structuresGrid">
+                            <!-- Structure cards will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Cost Analysis Tab -->
+                    <div class="tab-content" id="costTab">
+                        <div class="cost-analysis">
+                            <div class="cost-breakdown">
+                                <h3>Cost Breakdown</h3>
+                                <div class="chart-container" style="position: relative; height: 300px;">
+                                    <canvas id="costChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="roi-analysis">
+                                <h3>Return on Investment</h3>
+                                <div class="chart-container" style="position: relative; height: 300px;">
+                                    <canvas id="roiChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="financing-options">
+                                <h3>Financing Options</h3>
+                                <div class="financing-grid" id="financingGrid">
+                                    <!-- Financing options will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Environmental Impact Tab -->
+                    <div class="tab-content" id="environmentalTab">
+                        <div class="environmental-impact">
+                            <div class="impact-metrics">
+                                <h3>Environmental Benefits</h3>
+                                <div class="impact-grid" id="impactGrid">
+                                    <!-- Impact metrics will be populated dynamically -->
+                                </div>
+                            </div>
+                            <div class="conservation-chart">
+                                <h3>Water Conservation Potential</h3>
+                                <div class="chart-container" style="position: relative; height: 300px;">
+                                    <canvas id="conservationChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Implementation Plan Tab -->
+                    <div class="tab-content" id="implementationTab">
+                        <div class="implementation-plan">
+                            <div class="timeline-section">
+                                <h3>Implementation Timeline</h3>
+                                <div class="timeline" id="implementationTimeline">
+                                    <!-- Timeline will be populated dynamically -->
+                                </div>
+                            </div>
+                            <div class="maintenance-section">
+                                <h3>Maintenance Schedule</h3>
+                                <div class="maintenance-grid" id="maintenanceGrid">
+                                    <!-- Maintenance schedule will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h4>RTRWH Assessment</h4>
+                            <span>Water Conservation Heroes</span>
+                        </div>
+                    </div>
+                    <p>Empowering communities with intelligent rainwater harvesting solutions for a sustainable future.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="navigateToPage('home')">Home</a></li>
+                        <li><a href="#" onclick="navigateToPage('about')">About</a></li>
+                        <li><a href="#" onclick="startAssessment()">Assessment</a></li>
+                        <li><a href="#" target="_blank">Installation Guide</a></li>
+                        <li><a href="#" target="_blank">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">CGWB Guidelines</a></li>
+                        <li><a href="#" target="_blank">Government Schemes</a></li>
+                        <li><a href="#" target="_blank">Technical Manuals</a></li>
+                        <li><a href="#" target="_blank">Case Studies</a></li>
+                        <li><a href="#" target="_blank">Research Papers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact & Support</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> support@rtrwh.com</li>
+                        <li><i class="fas fa-phone"></i> +91 1800-XXX-XXXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+                    </ul>
+                    <div class="footer-partners">
+                        <p><strong>Partners:</strong></p>
+                        <p>Central Ground Water Board, Ministry of Jal Shakti</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RTRWH Assessment Tool. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
